@@ -23,6 +23,7 @@ function Categories() {
     return (
     <div className="App">
         <h1>Trivia Thing</h1>
+        <h2>Choose a Category!</h2>
         <ul className="category-list">
         {triviaCategories.map((triviaCategory) => (
             <li><button  onClick={(e) => setSelectedCategory(triviaCategory)}>{triviaCategory.name}</button></li>
