@@ -18,11 +18,18 @@ function Questions({ selectedCategory }) {
     return (
         <div className="App">
         <h1>{selectedCategory.name}</h1>
-        <ul>
+        <div>
             {questions.map((question) => (
-            <li>{question.question}</li>
+            <div>{question.question}
+            <ul>
+            <li>{question.correct_answer}</li>
+            <li>{question.incorrect_answers[0]}</li>
+            <li>{question.incorrect_answers[1]}</li> 
+            <li>{question.incorrect_answers[2]}</li> 
+            </ul>
+            </div>
             ))}
-          </ul>
+          </div>
         </div>
       )
 }
