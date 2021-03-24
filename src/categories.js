@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import './app.css'
 import Questions from './questions'
 
 
@@ -22,7 +23,7 @@ function Categories() {
     return (
     <div className="App">
         <h1>Trivia Thing</h1>
-        <ul>
+        <ul className="category-list">
         {triviaCategories.map((triviaCategory) => (
             <li><button  onClick={(e) => setSelectedCategory(triviaCategory)}>{triviaCategory.name}</button></li>
             // when button is clicked, setState to the given trivia category (has an ID and a name)

@@ -1,0 +1,52 @@
+body {
+  background: #a5a0a0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.category-list {
+  /* display: inline-flex;
+  flex-wrap: wrap; */
+}
+
+div {
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  background: #ffffff;
+  border-style: solid;
+  border-radius: 3px 15px;
+  border-color: rgb(238, 118, 238);
+  margin: 5px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+}
+
+button:hover {
+  border: #ffffff;
+  height: 35px;
+}
+
+h1 {
+  font-family: "Chango";
+  background: repeating-linear-gradient(
+    to left,
+    rgba(127, 0, 217, 0.85),
+    rgb(255, 162, 0),
+    rgb(157, 0, 255),
+    rgba(255, 183, 0, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  text-align: center;
+  -webkit-text-stroke: 0.02px rgb(255, 255, 255);
+}

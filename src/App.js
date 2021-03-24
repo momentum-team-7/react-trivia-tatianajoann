@@ -1,7 +1,7 @@
 
 
 import Categories from './categories';
-
+import './app.css'
 
 function App() {
 
