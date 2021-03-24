@@ -1,27 +1,34 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import Questions from './questions'
 
 
 function Categories() {
-    const [trivias, setTrivia] = useState([])
+    const [triviaCategories, setTriviaCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     useEffect(() => {
-      axios.get('https://opentdb.com/api_category.php').then((response) => {
-        setTrivia(response.data.trivia_categories)
-        console.log(trivias)
-      })
+    axios.get('https://opentdb.com/api_category.php').then((response) => {
+        setTriviaCategories(response.data.trivia_categories)
+        console.log('triviaCategories', triviaCategories)
+    })
     }, [])
-  
-  
+
+    if (selectedCategory) {
+        return <Questions selectedCategory={selectedCategory} />
+        // if a category is selected render questions 
+        //sending questions the selected category
+    }
+
     return (
-      <div className="App">
+    <div className="App">
         <h1>Trivia Thing</h1>
         <ul>
-          {trivias.map((trivia) => (
-            <li><button  onClick={(e) => setSelectedCategory(trivia.name)}>{trivia.name}</button></li>
-          ))}
+        {triviaCategories.map((triviaCategory) => (
+            <li><button  onClick={(e) => setSelectedCategory(triviaCategory)}>{triviaCategory.name}</button></li>
+            // when button is clicked, setState to the given trivia category (has an ID and a name)
+        ))}
         </ul>
-      </div>
+    </div>
     )
     
 }
