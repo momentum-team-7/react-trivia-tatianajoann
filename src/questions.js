@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import './app.css'
+import Answers from './answers'
 import selectedCategory from './categories';
 
 
@@ -20,14 +21,10 @@ function Questions({ selectedCategory }) {
         <div className="App">
         <h1>{selectedCategory.name}</h1>
         <div>
-            {questions.map((question) => (
-            <div>{question.question}
-            <ul>
-            <li>{question.correct_answer}</li>
-            <li>{question.incorrect_answers[0]}</li>
-            <li>{question.incorrect_answers[1]}</li> 
-            <li>{question.incorrect_answers[2]}</li> 
-            </ul>
+            {questions.map((question, index) => (
+            <div className="questions">{question.question}
+            <Answers questions={questions} correctAnswer={question.correct_answer} incorrectAnswers={question.incorrect_answers}/>
+           
             </div>
             ))}
           </div>
