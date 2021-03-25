@@ -62,3 +62,25 @@ h2 {
   color: #ffffff;
   font-weight: bolder;
 }
+
+.right {
+  font-family: "Chango";
+  color: rgb(0, 242, 0);
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke: 0.01px rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.wrong {
+  font-family: "Chango";
+  color: red;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke: 0.01px rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
