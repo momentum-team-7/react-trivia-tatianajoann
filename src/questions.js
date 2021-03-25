@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import './app.css'
 import Answers from './answers'
-import selectedCategory from './categories';
+import he from 'he'
 
 
 function Questions({ selectedCategory }) {
@@ -22,7 +22,7 @@ function Questions({ selectedCategory }) {
         <h1>{selectedCategory.name}</h1>
         <div>
             {questions.map((question, index) => (
-            <div className="questions">{question.question}
+            <div className="questions">{he.decode(question.question)}
             <Answers questions={questions} correctAnswer={question.correct_answer} incorrectAnswers={question.incorrect_answers}/>
            
             </div>

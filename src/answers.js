@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios';
-
-import selectedCategory from './categories';
+import he from 'he'
 
 function Answers(props) {
     const {questions, correctAnswer, incorrectAnswers} = props
@@ -15,9 +13,9 @@ function Answers(props) {
     return (
         <div>
           <ul>
-            <li><button onClick={(e) => setSelectedAnswer(true)}>{correctAnswer}</button></li>
+            <li><button onClick={(e) => setSelectedAnswer(true)}>{he.decode(correctAnswer)}</button></li>
             {incorrectAnswers.map((incorrectAnswer, index) => (
-              <li><button onClick={(e) => setSelectedAnswer(false)}>{incorrectAnswer}</button></li>
+              <li><button onClick={(e) => setSelectedAnswer(false)}>{he.decode(incorrectAnswer)}</button></li>
             ))}
             </ul> 
           <div className="right" style={selectedAnswer ? {} : { display: 'none' }}>
