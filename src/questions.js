@@ -3,6 +3,7 @@ import axios from 'axios';
 import './app.css'
 import Answers from './answers'
 import he from 'he'
+import lodash from 'lodash'
 
 
 function Questions({ selectedCategory }) {
@@ -16,14 +17,14 @@ function Questions({ selectedCategory }) {
             
     })
     }, [])
-
+   
     return (
         <div className="App">
         <h1>{selectedCategory.name}</h1>
         <div>
             {questions.map((question, index) => (
             <div className="questions">{he.decode(question.question)}
-            <Answers questions={questions} correctAnswer={question.correct_answer} incorrectAnswers={question.incorrect_answers}/>
+            <Answers questions={questions} correctAnswer={question.correct_answer} possibleAnswers={lodash.shuffle(question.incorrect_answers.concat(question.correct_answer))}/>
            
             </div>
             ))}
