@@ -3,23 +3,16 @@ import he from 'he'
 import lodash from 'lodash'
 
 function Answers(props) {
-    const {question, correctAnswer, possibleAnswers} = props
+    const {question, correctAnswer, possibleAnswers, selected} = props
     const [selectedAnswer, setSelectedAnswer] = useState(null)
     const [score, setScore] = useState(0)
  
 
-  // const handleAnswer = (answer) => {
-  //     if (answer === correctAnswer) {
-  //       setSelectedAnswer(true);
-  //       setScore(score + 1);
-  //     } else {
-  //       setSelectedAnswer(false)
-  //     }
-  //   }
 
     return (
         <div>
              {/* <p>Current Score: {score} / {questions.length} </p> */}
+             <div className="questions">{he.decode(question.question)}</div>
           <ul>
 
             {possibleAnswers.map((possibleAnswer, index) => (
@@ -33,6 +26,10 @@ function Answers(props) {
                 {he.decode(possibleAnswer)}
                 </button>
             </li>))}
+            <button onClick={()=> {
+              // run selected function from questions component
+              selected();
+            }}>Next Question</button>
             </ul> 
         
           <div className="right" style={selectedAnswer ? {} : { display: 'none' }}>
