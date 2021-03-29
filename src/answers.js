@@ -3,26 +3,38 @@ import he from 'he'
 import lodash from 'lodash'
 
 function Answers(props) {
-    const {questions, correctAnswer, possibleAnswers} = props
+    const {question, correctAnswer, possibleAnswers} = props
     const [selectedAnswer, setSelectedAnswer] = useState(null)
-    console.log('pos', possibleAnswers)
-    console.log('cor', correctAnswer)
-    // console.log(selectedAnswer)
-    // console.log(correctAnswer)
+    const [score, setScore] = useState(0)
+ 
+
+  // const handleAnswer = (answer) => {
+  //     if (answer === correctAnswer) {
+  //       setSelectedAnswer(true);
+  //       setScore(score + 1);
+  //     } else {
+  //       setSelectedAnswer(false)
+  //     }
+  //   }
 
     return (
         <div>
+             {/* <p>Current Score: {score} / {questions.length} </p> */}
           <ul>
 
             {possibleAnswers.map((possibleAnswer, index) => (
               <li>
-              <button onClick={() => correctAnswer === possibleAnswer ? setSelectedAnswer(true) : setSelectedAnswer(false)}>{he.decode(possibleAnswer)}</button>
+              <button 
+              onClick={()=> {
+                correctAnswer === possibleAnswer ? setSelectedAnswer(true) : setSelectedAnswer(false);
+                let newScore = score
+                correctAnswer === possibleAnswer ? setScore(newScore + 1) : setScore(newScore);
+                }}>
+                {he.decode(possibleAnswer)}
+                </button>
             </li>))}
-            {/* <li><button onClick={(e) => setSelectedAnswer(true)}>{he.decode(correctAnswer)}</button></li>
-            {incorrectAnswers.map((incorrectAnswer, index) => (
-              <li><button onClick={(e) => setSelectedAnswer(false)}>{he.decode(incorrectAnswer)}</button></li>
-            ))} */}
             </ul> 
+        
           <div className="right" style={selectedAnswer ? {} : { display: 'none' }}>
               Correct!!
           </div>

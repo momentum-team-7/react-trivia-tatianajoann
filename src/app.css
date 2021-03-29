@@ -30,6 +30,20 @@ button:hover {
   height: 35px;
 }
 
+.back-btn {
+  font-family: "Chango";
+  border: none;
+  background: #a5a0a0;
+  align-content: center;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+  color: darkviolet;
+}
+
 h1 {
   font-family: "Chango";
   background: repeating-linear-gradient(

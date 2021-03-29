@@ -15,7 +15,7 @@ function Categories() {
     }, [])
 
     if (selectedCategory) {
-        return <Questions selectedCategory={selectedCategory} />
+        return <Questions selectedCategory={selectedCategory} handleGoBack={() => setSelectedCategory(null)}/>
         // if a category is selected render questions 
         //sending questions the selected category
     }
